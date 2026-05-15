@@ -5,12 +5,11 @@ workflows:
     max_build_duration: 60
     environment:
       xcode: latest
-      vars:
-        PROJECT_DIR: "App"
     scripts:
       - name: Build
         script: |
-          cd $PROJECT_DIR
+          cd App
+          
           xcodebuild build \
             -scheme App \
             -sdk iphoneos \
@@ -18,7 +17,7 @@ workflows:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            -derivedDataPath build
+            -derivedDataPath ../build
     artifacts:
-      - path: "**/*.app"
-      - path: "**/*.ipa"
+      - build/**/Release-iphoneos/*.app
+      - "**/*.ipa"
