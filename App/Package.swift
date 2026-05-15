@@ -3,31 +3,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "App",
+    name: "Mobywatel",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .iOSApplication(
             name: "Mobywatel",
-            executableName: "Mobywatel",
+            targets: ["App"],
             bundleIdentifier: "com.bialykalafior.mobywatel",
-            teamIdentifier: "",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
-            accentColor: .asset("AccentColor"),
-            supportedDeviceFamilies: [.pad, .phone],
-            supportedInterfaceOrientations: [.portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight],
-            capabilities: [],
-            additionalInfoPlistContentFile: "Info.plist"
+            supportedDeviceFamilies: [.phone, .pad],
+            supportedInterfaceOrientations: [.portrait]
         )
     ],
     targets: [
         .executableTarget(
             name: "App",
-            dependencies: [],
             path: "Sources"
         )
     ]
-)	
+)
